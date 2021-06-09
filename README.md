@@ -1,5 +1,6 @@
 # BostonTimelapse
 
+![skyline.jpeg](images/skyline.jpeg)
 
 ## tl:dr
 I made a fully automated timelapse build pipeline with python, FFmpeg and a raspberry pi 4. It creates beautiful timelapses of Boston, MA using images from webcams installed by the National Parks Service in Boston. 
@@ -331,6 +332,8 @@ I am really interested in running this for the long term. At a minimum I love se
 I hope sharing this helps someone else learn something or even inspires someone to do something with another feed somewhere in the public domain! Though I do not recommend actually using my code :) This writeup is my attempt to give something back given how much I benefited from sites like stack overflow and a whole bunch of random blogs and websites.
 
 If you like the work don't forget to follow me on twitter [@bostontimelaps1](https://twitter.com/BostonTimelaps1) and/or [instagram](https://www.instagram.com/bostontimelaps1).
+
+And finally, apologies for keeping this anonymous. I did not do this for anything other than fun and I prefer not to have an obvious public internet presence.
 
 ## Acknowledgements
 Huge thank you to Boston NPH and the team that makes these images possible. Especially Eric. I reached out to them to let them know what I was doing and how cool I think the cameras are and they have been extremely generous and friendly to a silly hobbyist. 
