@@ -1,6 +1,6 @@
 # BostonTimelapse
 
-![](images/skyline.jpeg)
+![](../images/skyline.jpeg)
 
 ## tl:dr
 I made a fully automated timelapse build pipeline with python, FFmpeg and a raspberry pi 4. It creates beautiful timelapses of Boston, MA using images from webcams installed by the National Parks Service in Boston. 
