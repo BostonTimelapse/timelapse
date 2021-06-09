@@ -5,7 +5,7 @@
 ## tl:dr
 I made a fully automated timelapse build pipeline with python, FFmpeg and a raspberry pi 4. It creates beautiful timelapses of Boston, MA using images from webcams installed by the National Parks Service in Boston. 
 
-1. It pulls down images every minute from [the NPS website](https://www.nps.gov/bost/learn/views-of-the-revolution-360-monument-webcams.htm), processes them and saves them with some basic error handling
+1. It pulls down images every minute from [this NPS website](https://www.nps.gov/bost/learn/views-of-the-revolution-360-monument-webcams.htm), processes them and saves them with some basic error handling
 2. It builds timelapses twice a day with [FFmpeg](https://ffmpeg.org). In the morning it builds them with images from an hour before sunset the day before to an hour after sunrise that morning. At night it builds them with images captured from the beginning of nautical twilight before sunrise to the end of nautical twilight after sunset that day
 3. It uploads the completed videos to [https://vimeo.com/bostontimelapse](https://vimeo.com/bostontimelapse) and sorta [https://www.youtube.com/channel/UCMDyNjlXSzs-YenlyYpcuhQ](https://www.youtube.com/channel/UCMDyNjlXSzs-YenlyYpcuhQ)
 4. It tweets via [https://twitter.com/BostonTimelaps1](https://twitter.com/BostonTimelaps1) 
