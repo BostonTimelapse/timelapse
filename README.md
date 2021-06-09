@@ -147,6 +147,7 @@ The other thing that may be less common is using `subproccess.run()` to call FFm
 [FFmpeg](https://www.ffmpeg.org/) is so awesome. I made a timelapse via imovie once and processing took forever and it was a huge hassle. FFmpeg does this stuff so fast and painlessly I cannot believe it. Even a tiny little pi can just crank through it given enough time. Here's a list of the base commands I used. There are a lot of configurable options here, but this stuff just works.
 
 Base timelapse creation from a bunch of jpgs in a directory
+
 ```
 ffmpeg -framerate 18 -pattern_type glob -i "/path/to/images/*.jpg" -s:v 1280x720 -c:v libx264 -crf 17 -pix_fmt yuv420p -aspect 16:9 /path/to/output/output.mp4
 ```
