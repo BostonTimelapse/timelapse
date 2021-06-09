@@ -1,6 +1,7 @@
-#BostonTimelapse
+# BostonTimelapse
 
-##tl:dr
+
+## tl:dr
 I made a fully automated timelapse build pipeline with python, FFmpeg and a raspberry pi 4. It creates beautiful timelapses of Boston, MA using images from webcams installed by the National Parks Service in Boston. 
 
 1. It pulls down images every minute from [the NPS website](https://www.nps.gov/bost/learn/views-of-the-revolution-360-monument-webcams.htm), processes them and saves them with some basic error handling
@@ -17,7 +18,7 @@ Huge thank you to the National Parks Service of Boston! More acknowledgements at
 [Have a look at my crappy code]()
 
 
-##I have no idea what I am doing
+## I have no idea what I am doing
 
 Though I've spent years working for software companies I am absolutely not a developer or engineer. I sort of have a high level handle on many concepts but I have no idea what I am doing when it comes to practical matters. I 'taught' myself some python, some command line skills and rudimentary linux administration. This is my third attempt at doing something useful in 10 years. Please feel free to judge. This is all for fun and of course unadultered frustration. For most things I've done and shared I am sure there is a faaaaar better way. 
 
@@ -75,66 +76,66 @@ Here's a rundown of the messes I made and how I cleaned them up:
 
 1. **mess:** For some reason or another I thought I needed to do a full update and ran `sudo apt update` then `sudo apt full-upgrade`. The system just hung and I could not kick off another ssh session to try and kill processes. I coudn't figure out what to do so I unplugged it again. it would not come back up.
 
- **solution:** I assumed I'd wrecked the os. My 2012 macbook pro has an sd card reader and was able to reimage the sd card via [rasberry pi imager](https://www.raspberrypi.org/software/) and [extfs for mac](https://www.paragon-software.com/us/home/extfs-mac/) - extfs is paid unfortunately but you can use it for free for a short time. Was a lot faster and easier than I thought it would be. I ended up buying extfs for mac.
+	**solution:** I assumed I'd wrecked the os. My 2012 macbook pro has an sd card reader and was able to reimage the sd card via [rasberry pi imager](https://www.raspberrypi.org/software/) and [extfs for mac](https://www.paragon-software.com/us/home/extfs-mac/) - extfs is paid unfortunately but you can use it for free for a short time. Was a lot faster and easier than I thought it would be. I ended up buying extfs for mac.
  
- **consequences:** 
- - I had to set up the pi from scratch again
- - I was lazy about setting up a git workflow. Seemed complicated to me given I have no idea what I am doing. I lost some code changes I had made that I had to rewrite. Not sure if it's a good or bad plan but my code lives on the sd card (everything else on the external disk)
- - Big window of time where I wasn't pulling new images
- - Lots of lost time and significant frustration
+	**consequences:** 
+	- I had to set up the pi from scratch again
+	- I was lazy about setting up a git workflow. Seemed complicated to me given I have no idea what I am doing. I lost some code changes I had made that I had to rewrite. Not sure if it's a good or bad plan but my code lives on the sd card (everything else on the external disk)
+	- Big window of time where I wasn't pulling new images
+	- Lots of lost time and significant frustration
 
 2. **problem:** Something in this borked upgrade helped lead the old hdd to failure. Can't remember exactly what made me think it was the drive causing problems and I wasn't 100% sure it was gone but just after I rescued the files to my mac (extfs for mac again to the rescue) to be careful it died for good.
  
- **solution:** I nearly ordered a new drive via amazon. Then my pandemic-fried brain remembered brick and mortar shops exist for instant gratification. I set up a brand new drive and copied my rescued files over once I had a working os and working external storage 
+	**solution:** I nearly ordered a new drive via amazon. Then my pandemic-fried brain remembered brick and mortar shops exist for instant gratification. I set up a brand new drive and copied my rescued files over once I had a working os and working external storage 
  
- **consequences:** 
- - Contributor to the big window of time where I wasn't pulling new images
- - More lost time and more frustration
- - Thankfully no data loss from the old disk
- - I made [a back up of my image](https://www.tomshardware.com/how-to/back-up-raspberry-pi-as-disk-image) and stored one on my mac and the usb disk
- - I thought about backing up the usb disk but did not do it
+	**consequences:** 
+	- Contributor to the big window of time where I wasn't pulling new images
+	- More lost time and more frustration
+ 	- Thankfully no data loss from the old disk
+	- I made [a back up of my image](https://www.tomshardware.com/how-to/back-up-raspberry-pi-as-disk-image) and stored one on my mac and the usb disk
+	- I thought about backing up the usb disk but did not do it
 
 3. **problem:** I rebooted the pi for one reason or another and the file system reverted to an older state. Whut? Something like [this](https://www.raspberrypi.org/forums/viewtopic.php?t=21330) was going on and the sd card was probably wrecked. Maybe it was recoverable but figured a new one couldn't hurt.
 
- **solution:** I ran back to bestbuy and bought a new sd card (and another hdd for backup storage). It is 32gb and the old one was 16gb. The compressed via [pishrink](https://github.com/Drewsif/PiShrink) image restored and resized perfectly to the new card. The pi came right back up in a nicely configured and ready-to-go state. It felt like magic. I was so happy. 
+	**solution:** I ran back to bestbuy and bought a new sd card (and another hdd for backup storage). It is 32gb and the old one was 16gb. The compressed via [pishrink](https://github.com/Drewsif/PiShrink) image restored and resized perfectly to the new card. The pi came right back up in a nicely configured and ready-to-go state. It felt like magic. I was so happy. 
 
- **consequences:** Nothing more than lost time and lost image downloads. A functional backup is the best. In retrospect the root cause of problem 1 was probably related to the sd card too. 
+	**consequences:** Nothing more than lost time and lost image downloads. A functional backup is the best. In retrospect the root cause of problem 1 was probably related to the sd card too. 
 
 4. **problem:** I got around to setting up the second usb hdd. I plugged it in to the second usb port did some googling to figure out how to format it, mounted it and the first disk became unmounted. Wtf? Lots more weird behavior later and I figured out what was going on. [You cannot mount two unpowered usb hdds to a pi 4](https://www.raspberrypi.org/forums/viewtopic.php?t=253792). Whoops. Stopped trying to do that and thought I was on my way. The next time I ran my timelapse build process it failed because it could not read the source images. I ran `ls -l` on the image directory and saw some images had 0 for file size. I tried to `rm` them. I tried `rm -f`. I tried `sudo rm -f`. I tried `ls -li` to find their inode and delete them that way. Nope, kept getting something like this `rm: cannot remove 'file': Bad message`. Something was clearly corrupted.
  
- **solution:** Lots more googling and 'discovered' fsck. Ran a playbook I found somewhere and blammo it was fixed. That was cool. It was also midnight and I was fried. The next day I ordered a powered usb hub so I can connect another drive. In a hugely embarassing moment I had no idea how this hub worked and thought it was broken so Amazon shipped me a new one. Not gonna talk about that (basic diagram woulda been nice though). 
+	**solution:** Lots more googling and 'discovered' fsck. Ran a playbook I found somewhere and blammo it was fixed. That was cool. It was also midnight and I was fried. The next day I ordered a powered usb hub so I can connect another drive. In a hugely embarassing moment I had no idea how this hub worked and thought it was broken so Amazon shipped me a new one. Not gonna talk about that (basic diagram woulda been nice though). 
  
- **consequences:** More images I failed to capture, not to mention lost time, lost sleep and increased frustration.
+	**consequences:** More images I failed to capture, not to mention lost time, lost sleep and increased frustration.
  
 5. **problem:** Raspberry pi tipped over while I was out of town and was totaly unresponsive. Could not SSH to it. This freaked me out and I was worried it was hacked.
  
- **solution:** Turns out the pi was the least of my problems when I got home. Our fridge had failed too. Lots of spoiled freezer food. This is the second time that's happend in 4 months. Lucky to be able to afford a new fridge. Anyway, cycling the power the pi came right back up. I did a lot of poking at logs to investigate and what I think happened is the pi did an automated update via `apt-daily.service` and it hung.  It eventually came back up and my cronjobs ran but it was disconnected from the network. I think it is because there was a message in the process that needed to be accepted (this happened when I did it manually - didn't grab the message. Sorry should have) and the whole thing hung. Since I already ran that `apt update` and `apt upgrade` manually there isn't a good way for me to reproduce.  Either way I stopped that the automated updates.  I'll just have to be diligent about doing it myself regularly. 
+	**solution:** Turns out the pi was the least of my problems when I got home. Our fridge had failed too. Lots of spoiled freezer food. This is the second time that's happend in 4 months. Lucky to be able to afford a new fridge. Anyway, cycling the power the pi came right back up. I did a lot of poking at logs to investigate and what I think happened is the pi did an automated update via `apt-daily.service` and it hung.  It eventually came back up and my cronjobs ran but it was disconnected from the network. I think it is because there was a message in the process that needed to be accepted (this happened when I did it manually - didn't grab the message. Sorry should have) and the whole thing hung. Since I already ran that `apt update` and `apt upgrade` manually there isn't a good way for me to reproduce.  Either way I stopped that the automated updates.  I'll just have to be diligent about doing it myself regularly. 
  
- **consequences:** About 14 hours of images lost.
+	**consequences:** About 14 hours of images lost.
    
  
 ## Automated pipeline
 Almost everytime I got something working I had an idea to extend it further. Or it dawned on my I'd done something stupid. In general I tried to keep scripts modular so they could be chained togehter and run via cron. Here's a high level summary of the big iterations with the associated ideas that made me break them. Each step was a lot of work and a significant learning experience. The goal was always to keep everything automated with no intervention needed. Was at least 6 weeks before I got a few days running in a row.
 
 1. Early version of getimages.py --> Defunct bash script that created time lapses
-  - Idea: decide which images to build from based on date and astronomical data and group them together 
+	- Idea: decide which images to build from based on date and astronomical data and group them together 
 2. getimages.py --> timelapsebuilder.py
-  - Idea: Automatically upload videos to youtube
+	- Idea: Automatically upload videos to youtube
 3. getimages.py --> timelapsebuilder.py --> defunct youtube upload script
-  - Idea: Automatically upload videos to vimeo
+	- Idea: Automatically upload videos to vimeo
 4. getimages.py --> timelapsebuilder.py --> vimeo\_upload\_youtube_prep.py --> youtube\_upload.py
- - Idea: Tweet about the videos automatically (this was my wife's idea and I needed her help... I'd never really used twitter)
+	- Idea: Tweet about the videos automatically (this was my wife's idea and I needed her help... I'd never really used twitter)
 5. getimages.py --> timelapsebuilder.py --> vimeo\_upload\_youtube_prep.py --> youtube\_upload.py --> twittertimelapsebot.py
- - Idea: Run two build pipelines so I could grab the images from Bunker Hill too. 
+	- Idea: Run two build pipelines so I could grab the images from Bunker Hill too. 
 6. Refactored everything to take config files and some command line arguments
-  - Idea: Instagram (also my wife's idea... and this was a massive time suck. I almost gave up.)
+	- Idea: Instagram (also my wife's idea... and this was a massive time suck. I almost gave up.)
 7. getimages.py --> timelapsebuilder.py --> vimeo\_upload\_youtube_prep.py --> youtube\_upload.py --> instagramandtwitterbot.py
- - Idea: Instagram video clips of sunrise and sunset (eventually this is what made sense to also post to twitter - can see the progression on my feed)
+	- Idea: Instagram video clips of sunrise and sunset (eventually this is what made sense to also post to twitter - can see the progression on my feed)
 8. getimages.py --> timelapsebuilder.py --> vimeo\_upload\_youtube_prep.py --> youtube\_upload.py --> instagramandtwitterbot.py --> instagram\_clip\_uploader.py (instagram\_clip\_uploader.py easily became part of instagramandtwitterbot.py)
 
 I broke the whole thing every step of the way so many times. Even with the minor changes
 
-#####Further commentary on the components below:
+##### Further commentary on the components below:
 
 #### python
 There isn't a whole lot of special python stuff in this flow. The most important component is [opencv-python](https://pypi.org/project/opencv-python/) and is used for initial image processing. As I understand it all the other modules are pretty common apart from the api client libraries.
@@ -148,23 +149,36 @@ Base timelapse creation from a bunch of jpgs in a directory
 ```ffmpeg -framerate 18 -pattern_type glob -i "/path/to/images/*.jpg" -s:v 1280x720 -c:v libx264 -crf 17 -pix_fmt yuv420p -aspect 16:9 /path/to/output/output.mp4```
 
 Combine four videos into one feed (note this is video only - the filter needs modification to include audio too). There's actually a better less compute heavy way for me to do this by concatenating the images when they are initially processed and then building one video stream
-```ffmpeg -i /path/to/input0.mp4	 -i /path/to/input1.mp4 -i /path/to/input2.mp4 -i /path/to/input3.mp4 -filter_complex "[0:v][1:v]hstack[top]; [2:v][3:v]hstack[bottom]; [top][bottom]vstack,format=yuv420p[v]"
--map "[v]" /path/to/output.mp4```
+
+```
+ffmpeg -i /path/to/input0.mp4 -i /path/to/input1.mp4 -i /path/to/input2.mp4 -i /path/to/input3.mp4 -filter_complex "[0:v][1:v]hstack[top]; [2:v][3:v]hstack[bottom]; [top][bottom]vstack,format=yuv420p[v]"
+-map "[v]" /path/to/output.mp4
+```
 
 Loop a frame at the end of a video where N is substituted for number of seconds there are other ways to do this but not with the debian version of ffmpeg I installed. I actually installed ffmpeg from source to get that feature... but that became a whole painful saga I'm going to omit from this post.
-```ffmpeg -i /path/to/input.mp4 -filter_complex "[0]trim=0:N[hold];[0][hold]concat[extended];[extended][0]overlay" /path/to/output.mp4```
+```
+ffmpeg -i /path/to/input.mp4 -filter_complex "[0]trim=0:N[hold];[0][hold]concat[extended];[extended][0]overlay" /path/to/output.mp4
+```
 
 Snag the last N seconds of a clip - used this for my insta posts
-```ffmpeg -sseof -N -i /path/to/input.mp4 /path/to/output.mp4"```
+```
+ffmpeg -sseof -N -i /path/to/input.mp4 /path/to/output.mp4
+```
 
 Grab a clip starting at time X and lasting N seconds - used for randomly generated clips for twitter.
-```ffmpeg -ss X -i path/to/input.mp4 -c copy -t N path/to/output.mp4```
+```
+ffmpeg -ss X -i path/to/input.mp4 -c copy -t N path/to/output.mp4
+```
 
 Get length of video
-```ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 /path/to/input.mp4```
+```
+ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 /path/to/input.mp4
+```
 
 Used a filter like this to crop a square video for instagram.  Do not use it currently.
-```ffmpeg -sseof -18 -i /path/to/input.mp4 -vf crop=720:720:280:0,setdar=1:1,setsar=1:1 /path/to/output.mp4```
+```
+ffmpeg -sseof -18 -i /path/to/input.mp4 -vf crop=720:720:280:0,setdar=1:1,setsar=1:1 /path/to/output.mp4
+```
 
 It's mindblowing how powerful ffmpeg is. I barely scratched the surface but it is absolutely the right tool for this job. Also after testing on mac it's pretty funny to see how slow it is on the pi. Totally the little engine that could. And that is sorta the fun of automation... who cares if it is slow? I just care that it happens. 
 
@@ -276,7 +290,7 @@ I fell into pretty bad habits and pretty much tested everything I wrote in produ
 I was realy humbled by the fact that testing requires so much discipline even for a project so small --- I should definitely be more empathetic to my software engineer colleagues. But they cannot and should not get away with my kind of bs behavior.
 
 #### coding
-I learned a lot... I am really happy that I am able to make this work at all. Beyond that it's kind of hard to articulate. For a project where I went from winging it entirely to trying to plan a little I had/have a lot of trouble with naming things. I also hit at least one off by one error. So I guess I went 2-3 with the "two hardest problems in computer science". 
+I learned a lot... I am really happy that I am able to make this work at all. Beyond that it's kind of hard to articulate. For a project where I went from winging it entirely to trying to plan a little I had/have a lot of trouble with naming things. I also hit at least one off by one error. So I guess I went 2-3 with the "two hardest problems in computer science." 
 
 #### python
 I learned so much about python from where I started it's crazy. It is definitely a language that comparatively lends itself to people like me who do not have a good foundation in computer science. But that's a low bar. and as someone with little experience it was sometimes confounding. A lot of the 'pythonic' doc out there lacks examples and is really hard to parse if you are new. It sometimes feels like another extension of the rtfm attitude that is everywhere in computer science especially in the *nix ecosystems. Great if it works for you, but examples work for many others. There is no reason for gate-keeping what are really becoming ubiquitious tools (case-in-point me using them).
