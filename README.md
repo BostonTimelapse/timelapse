@@ -344,4 +344,4 @@ Another big thank you to all of the open source projects that made this possible
 - https://sunrise-sunset.org/
 
 
-*Disclaimer: No protection is claimed in original U.S. Government works*
+*No protection is claimed in original U.S. Government works*
