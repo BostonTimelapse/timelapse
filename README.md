@@ -328,7 +328,9 @@ In the end I am so happy I have something that works. And I really enjoy sharing
 
 I am really interested in running this for the long term. At a minimum I love seeing sunset and sunrise from different perspectives every day.  I'm also sure the cameras will capture something cool and unexpected like this.
 
+
 ![](img/hawk.jpeg)
+
 
 And at a minimum I want to play around with really long term timelapses. We'll see what I can come up with.
 
