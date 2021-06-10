@@ -545,7 +545,7 @@ def create_twitter_video_dict(videodict):
     """creates dict of videos to be posted to twitter"""
     twitter_video_dict = {}
     for key in video_dict:
-        if "4-way" in key:
+        if "fourway" in key:
             video_path = video_dict[key]
             twitter_video_dict[key] = video_path
     return twitter_video_dict
@@ -660,6 +660,7 @@ def main():
             logging.info(post_result.text)
             os.remove(filepath)
         for key in insta_video_dict:
+            filename = key[:-3] + "instagram.mp4"
             video_url = get_instagram_video_url(key, insta_video_dict[key])
             instacopy = get_insta_copy(get_daily_run_number())
             instagram_video_post(video_url, instacopy)
