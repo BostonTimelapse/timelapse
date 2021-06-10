@@ -7,7 +7,7 @@ I made a fully automated timelapse build pipeline with python, FFmpeg and a rasp
 
 1. It [pulls down images every minute](https://github.com/BostonTimelapse/timelapse/blob/main/getimages.py) from [this NPS website](https://www.nps.gov/bost/learn/views-of-the-revolution-360-monument-webcams.htm), processes them and saves them with some basic error handling
 2. It [builds timelapses twice a day](https://github.com/BostonTimelapse/timelapse/blob/main/timelapsebuilder.py) with [FFmpeg](https://ffmpeg.org). In the morning it builds them with images from an hour before sunset the day before to an hour after sunrise that morning. At night it builds them with images captured from the beginning of nautical twilight before sunrise to the end of nautical twilight after sunset that day
-3. It [uploads the completed videos](https://github.com/BostonTimelapse/timelapse/blob/main/vimeo_upload_youtube_prep.py) to [https://vimeo.com/bostontimelapse](https://vimeo.com/bostontimelapse) and sorta [https://www.youtube.com/channel/UCMDyNjlXSzs-YenlyYpcuhQ](https://www.youtube.com/channel/UCMDyNjlXSzs-YenlyYpcuhQ)
+3. It [uploads the completed videos](https://github.com/BostonTimelapse/timelapse/blob/main/vimeo_upload_youtube_prep.py) to [https://vimeo.com/bostontimelapse](https://vimeo.com/bostontimelapse)
 4. It [tweets and posts to instagram](https://github.com/BostonTimelapse/timelapse/blob/main/instagramandtwitterbot.py) @ [https://twitter.com/BostonTimelaps1](https://twitter.com/BostonTimelaps1) and [https://www.instagram.com/bostontimelaps1/](https://www.instagram.com/bostontimelaps1/)
 
 {% include vimeoPlayer.html id="560681121" %}
