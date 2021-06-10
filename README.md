@@ -219,16 +219,16 @@ e.g. Morning Dorchester Heights run
 ```
 #!bin/bash
 export GOOGLE_APPLICATION_CREDENTIALS="path/to/key.json"
-/usr/bin/python3 /path/to/dhtimelapse/timelapsebuilder.py --processbatch=darkness --imagesfrom=today --config=dhconfig.txt
-/usr/bin/python3 /path/to/dhtimelapse/vimeo_upload_youtube_prep.py --config=dhconfig.txt --fromhour=6 --tohour=12
-#/usr/bin/python /path/to/dhtimelapse/youtube_upload.py --config=dhconfig.txt
-/usr/bin/python3 /path/to/dhtimelapse/twittertimelapsebot.py --config=dhconfig.txt --tweets=dhtweets.txt
+/usr/bin/python3 /path/to/timelapse/timelapsebuilder.py --processbatch=darkness --imagesfrom=today --config=dhconfig.txt
+/usr/bin/python3 /path/to/timelapse/vimeo_upload_youtube_prep.py --config=dhconfig.txt --fromhour=6 --tohour=12
+#/usr/bin/python /path/to/timelapse/youtube_upload.py --config=dhconfig.txt
+/usr/bin/python3 /path/to/timelapse/twittertimelapsebot.py --config=dhconfig.txt --tweets=dhtweets.txt
 
 #note the config file and arguments changes below
-/usr/bin/python3 /path/to/dhtimelapse/timelapsebuilder.py --processbatch=darkness --imagesfrom=today --config=bhconfig.txt
-/usr/bin/python3 /path/to/dhtimelapse/vimeo_upload_youtube_prep.py --config=bhconfig.txt --fromhour=6 --tohour=12
-#/usr/bin/python /path/to/dhtimelapse/youtube_upload.py --config=bhconfig.txt
-/usr/bin/python3 /path/to/dhtimelapse/twittertimelapsebot.py --config=bhconfig.txt --tweets=bhtweets.txt
+/usr/bin/python3 /path/to/timelapse/timelapsebuilder.py --processbatch=darkness --imagesfrom=today --config=bhconfig.txt
+/usr/bin/python3 /path/to/timelapse/vimeo_upload_youtube_prep.py --config=bhconfig.txt --fromhour=6 --tohour=12
+#/usr/bin/python /path/to/timelapse/youtube_upload.py --config=bhconfig.txt
+/usr/bin/python3 /path/to/timelapse/twittertimelapsebot.py --config=bhconfig.txt --tweets=bhtweets.txt
 ```
 
 Simple wrapper with google creds 
@@ -243,17 +243,17 @@ export GOOGLE_APPLICATION_CREDENTIALS="/path/to/key.json"
 Here are the items in my crontab for this project
 
 ```
-* * * * * /usr/bin/python3 /path/to/dhtimelapse/getimages.py --config=dhconfig.txt >> /usbdisk/dhtimelapse/logs/cronlogs/imagescronlog.txt 2>&1
-* * * * * /usr/bin/python3 /path/to/dhtimelapse/getimages.py --config=bhconfig.txt >> /usbdisk/bhtimelapse/logs/cronlogs/imagescronlog.txt 2>&1
-0 6 * * * /usr/bin/python3 /path/to/dhtimelapse/diskcheck.py >> /usbdisk/dhtimelapse/logs/cronlogs/checkstoragecronlog.txt 2>&1
-15 21 * * * /bin/bash /path/to/dhtimelapse/evening_cronrun_build_and_upload_wrapper.sh >> /usbdisk/dhtimelapse/logs/cronlogs/buildanduploadcronlog.txt 2>&1
-30 06 * * * /bin/bash /path/to/dhtimelapse/morning_cronrun_build_and_upload_wrapper.sh >> /usbdisk/dhtimelapse/logs/cronlogs/buildanduploadcronlog.txt 2>&1
-59 23 * * * /usr/bin/python3 /path/to/dhtimelapse/image_check.py --config=dhconfig.txt >> /usbdisk/dhtimelapse/logs/cronlogs/imagecheckcronlog.txt 2>&1
-59 23 * * * /usr/bin/python3 /path/to/dhtimelapse/image_check.py --config=bhconfig.txt >> /usbdisk/bhtimelapse/logs/cronlogs/imagecheckcronlog.txt 2>&1
-0 * * * * /usr/bin/python3 /path/to/dhtimelapse/image_check.py --config=dhconfig.txt >> /usbdisk/dhtimelapse/logs/cronlogs/imagecheckcronlog.txt 2>&1
-0 * * * * /usr/bin/python3 /path/to/dhtimelapse/image_check.py --config=bhconfig.txt >> /usbdisk/bhtimelapse/logs/cronlogs/imagecheckcronlog.txt 2>&1
-05 12 * * * /bin/bash /path/to/dhtimelapse/dhrandomimagewrapper.sh --config=dhconfig.txt --tweets=dhtweets.txt >> /usbdisk/dhtimelapse/logs/cronlogs/instagramandtwitterbotcronlog.txt 2>&1
-45 12 * * * /bin/bash /path/to/dhtimelapse/bhrandomimagewrapper.sh --config=bhconfig.txt --tweets=bhtweets.txt >> /usbdisk/dhtimelapse/logs/cronlogs/instagramandtwitterbot.pycronlog.txt 2>&1
+* * * * * /usr/bin/python3 /path/to/timelapse/getimages.py --config=dhconfig.txt >> /usbdisk/dhtimelapse/logs/cronlogs/imagescronlog.txt 2>&1
+* * * * * /usr/bin/python3 /path/to/timelapse/getimages.py --config=bhconfig.txt >> /usbdisk/bhtimelapse/logs/cronlogs/imagescronlog.txt 2>&1
+0 6 * * * /usr/bin/python3 /path/to/timelapse/diskcheck.py >> /usbdisk/dhtimelapse/logs/cronlogs/checkstoragecronlog.txt 2>&1
+15 21 * * * /bin/bash /path/to/timelapse/evening_cronrun_build_and_upload_wrapper.sh >> /usbdisk/dhtimelapse/logs/cronlogs/buildanduploadcronlog.txt 2>&1
+30 06 * * * /bin/bash /path/to/timelapse/morning_cronrun_build_and_upload_wrapper.sh >> /usbdisk/dhtimelapse/logs/cronlogs/buildanduploadcronlog.txt 2>&1
+59 23 * * * /usr/bin/python3 /path/to/timelapse/image_check.py --config=dhconfig.txt >> /usbdisk/dhtimelapse/logs/cronlogs/imagecheckcronlog.txt 2>&1
+59 23 * * * /usr/bin/python3 /path/to/timelapse/image_check.py --config=bhconfig.txt >> /usbdisk/bhtimelapse/logs/cronlogs/imagecheckcronlog.txt 2>&1
+0 */4 * * * /usr/bin/python3 /path/to/timelapse/image_check.py --config=dhconfig.txt >> /usbdisk/dhtimelapse/logs/cronlogs/imagecheckcronlog.txt 2>&1
+0 */4 * * * /usr/bin/python3 /path/to/timelapse/image_check.py --config=bhconfig.txt >> /usbdisk/bhtimelapse/logs/cronlogs/imagecheckcronlog.txt 2>&1
+05 12 * * * /bin/bash /path/to/timelapse/dhrandomimagewrapper.sh --config=dhconfig.txt --tweets=dhtweets.txt >> /usbdisk/dhtimelapse/logs/cronlogs/instagramandtwitterbotcronlog.txt 2>&1
+45 12 * * * /bin/bash /path/to/timelapse/bhrandomimagewrapper.sh --config=bhconfig.txt --tweets=bhtweets.txt >> /usbdisk/dhtimelapse/logs/cronlogs/instagramandtwitterbot.pycronlog.txt 2>&1
 
 ```
 
