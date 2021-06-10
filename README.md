@@ -11,7 +11,7 @@ I made a fully automated timelapse build pipeline with python, FFmpeg and a rasp
 4. It tweets via [https://twitter.com/BostonTimelaps1](https://twitter.com/BostonTimelaps1) 
 5. It [posts to instagram](https://www.instagram.com/bostontimelaps1/)
 
-{% include vimeoePlayer.html id="560681121" %}
+{% include vimeoPlayer.html id="560681121" %}
 
 I'd be more than content if someone finds a useful nugget about anything in this writeup.
 
