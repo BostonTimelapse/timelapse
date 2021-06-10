@@ -54,7 +54,7 @@ I got more obsessed.*
 
 ## I did a thing
 
-The [raw image](https://bh.bostonnpsevents.com/autostitch/pano_dohe.jpeg) kind of baffled me because I had zero working knowledge of how images are stitched together or cropped with code. Took me some haphazard googling to figure out that I could automatically process and crop it with opencv-python. Once I snipped some examples from stackoverflow I managed to process the image how I wanted and started to pull it down and process it every minute via cron on my laptop.
+The [raw image](https://bh.bostonnpsevents.com/autostitch/pano_dohe.jpeg) kind of baffled me because I had zero working knowledge of how images are stitched together or cropped with code. Took me some haphazard googling to figure out that I could automatically process and crop it with [opencv-python](https://github.com/opencv/opencv-python). Once I snipped some examples from stackoverflow I managed to process the image how I wanted and started to pull it down and process it every minute via cron on my laptop.
 
 My plan was to make a timelapse using imovie but I thought I might be able to do it faster via some python library or something (I have limited experience but imovie can be a slow pain). Thankfully I found [ffmpeg](https://www.ffmpeg.org/) and figured out how to produce timelapses via code for each of the cardinal directions.
 
