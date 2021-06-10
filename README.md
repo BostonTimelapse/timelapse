@@ -141,7 +141,9 @@ I broke the whole thing every step of the way so many times. Even with the minor
 #### python
 There isn't a whole lot of special python stuff in this flow. The most important component is [opencv-python](https://pypi.org/project/opencv-python/) and is used for initial image processing. As I understand it all the other modules are pretty common apart from the api client libraries.
 
-The other thing that may be less common is using `subproccess.run()` to call FFmpeg in my workflow. And of course I'm using client libraries for apis. I probably could have used a python FFmpeg wrapper but this is the path I started on. 
+The other thing that may be less common is using `subproccess.run()` to call FFmpeg in my workflow. And of course I'm using client libraries for apis. I probably could have used a python FFmpeg wrapper but this is the path I started on.
+
+Oh and I forgot about [black](https://github.com/psf/black). I am terrible at formatting. Black is awesome. 
 
 #### ffmpeg
 [FFmpeg](https://www.ffmpeg.org/) is so awesome. I made a timelapse via imovie once and processing took forever and it was a huge hassle. FFmpeg does this stuff so fast and painlessly I cannot believe it. Even a tiny little pi can just crank through it given enough time. Here's a list of the base commands I used. There are a lot of configurable options here, but this stuff just works.
@@ -344,7 +346,7 @@ If you like the work don't forget to follow me on twitter [@bostontimelaps1](htt
 And finally, apologies for keeping this anonymous. I did not do this for anything other than fun and I prefer not to have an obvious public internet presence.
 
 ## Acknowledgements
-Huge thank you to Boston NPH and the team that makes these images possible. Especially Eric. I reached out to them to let them know what I was doing and how cool I think the cameras are and they have been extremely generous and friendly to a silly hobbyist. 
+Huge thank you to Boston NPH and the team that makes these images possible. Especially Eric. I reached out to them to let them know what I was doing and how cool I think the cameras are and they have been extremely generous and friendly to a silly hobbyist. Also nearly forgot my friend Simon. He helped me with some random python questions including pointing me to black.
 
 Another big thank you to all of the open source projects that made this possible. Especially:
 
