@@ -12,7 +12,7 @@ I made a fully automated timelapse build pipeline with python, FFmpeg and a rasp
 5. It [posts to instagram](https://www.instagram.com/bostontimelaps1/)
 
 
-The idea behind this post is to give something back to the developer and aspiring developer community and hopefully provide someone with something useful, interesting or inspiring. Would be great if it inspires someone to do something similar with other images available in the public domain somewhere. But I'd be more than content if someone finds a useful nugget about anything in this writeup.
+The idea behind this post is to give something back to the developer and aspiring developer community after cribbing so much from around the web to build this. I'd be more than content if someone finds a useful nugget about anything in this writeup.
 
 Huge thank you to the National Parks Service of Boston! More acknowledgements at the end.
 
@@ -304,7 +304,6 @@ Here are some things I used that really helped make my life easier but also took
 * [Configparser](https://docs.python.org/3/library/configparser.html) to manage configs and sensitive variables. Part of the reason I didn't set up git early is I was paranoid about sharing creds. Setting up a config file is really really simple and then you can throw it in .gitignore
 * [Logging](https://docs.python.org/3/library/logging.html) - total must. Print statements were/are key for my debugging but logging has been a huge help for just about everything. I could have been disciplined about log levels... but whatever. It's a huge help and I'm not even that organized with it. Besides there is something deeply satisfying to watch `tail -f /path/to/foo.log` and see your work logging away live. 
 * [Argparse](https://docs.python.org/3/library/argparse.html) combined with mulitple config files was clutch for keeping me from copy/pasting code. I definitely still copy pasted a bit. But I don't think I was egregious and I tried soooo hard not to. Given my level of experience i'm pretty happy with how I did on that front.
-* Commenting is a pain but you gotta do it. I was really really lazy but this writeup helped motivate me and my comments have already saved me time re-reading my own code.
 
 Some more detailed things that I dealt with constantly and didn't really learn:
 
