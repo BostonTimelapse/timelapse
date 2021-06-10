@@ -1,0 +1,111 @@
+[daylight]
+default = Check out today's #sunset timelapse from #southie!
+
+[darkness]
+default = #sunrise in #Boston from #dorchesterheights!
+
+[randomimage]
+default = Random #southie timelapse clip of the day! #boston #dorchesterheights
+
+[instacopy]
+sunrise = #sunrise over #bostonharbor from #dorchesterheights
+sunset = #sunset over #boston from #dorchesterheights
+
+[MONDAYMORNING]
+0 = 
+1 = 
+2 = 
+3 = 
+4 = 
+
+[MONDAYNIGHT]
+0 = 
+1 = 
+2 = 
+3 = 
+4 = 
+
+[TUESDAYMORNING]
+0 = 
+1 = 
+2 = 
+3 = 
+4 = 
+
+[TUESDAYNIGHT]
+0 = First day of Meteorological #Summer! 
+1 = 
+2 = 
+3 = 
+4 = 
+
+[WEDNESDAYMORNING]
+0 = 
+1 = 
+2 = 
+3 = 
+4 = 
+
+[WEDNESDAYNIGHT]
+0 = 
+1 = 
+2 = 
+3 = 
+4 = 
+
+[THURSDAYMORNING]
+0 = Street sweeping today on the park side! #dorchesterheights
+1 = Street sweeping today on the residential side! #dorchesterheights
+2 = Street sweeping today on the park side! #dorchesterheights
+3 = Street sweeping today on the park side! #dorchesterheights
+4 = No need to be anxious. No sweeping today! #dorchesterheights
+
+[THURSDAYNIGHT]
+0 = 
+1 =  
+2 = 
+3 = 
+4 = 
+
+[FRIDAYMORNING]
+0 = 
+1 = 
+2 = 
+3 = 
+4 = 
+
+[FRIDAYNIGHT]
+0 = 
+1 = 
+2 = 
+3 = 
+4 = 
+
+
+[SATURDAYMORNING]
+0 = 
+1 = 
+2 =  
+3 = 
+4 = 
+
+[SATURDAYNIGHT]
+0 = 
+1 = 
+2 = 
+3 = 
+4 = 
+
+[SUNDAYMORNING]
+0 = 
+1 = 
+2 = 
+3 = 
+4 = 
+
+[SUNDAYNIGHT]
+0 = 
+1 = 
+2 = 
+3 = 
+4 = 
