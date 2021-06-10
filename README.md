@@ -16,7 +16,7 @@ The idea behind this post is to give something back to the developer and aspirin
 
 Huge thank you to the National Parks Service of Boston! More acknowledgements at the end.
 
-[Have a look at my crappy code]()
+[Have a look at my crappy code](https://github.com/BostonTimelapse/timelapse)
 
 
 ## I have no idea what I am doing
