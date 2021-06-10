@@ -1,0 +1,69 @@
+[directories]
+image_storage_root_directory = /path/to/directory/(east,west,north,south)
+project_dir = /path/to/groupedimages/
+timelapse_dir = /path/to/timelapses/
+log_dir = /path/to/logs/
+
+[logging]
+image_log_location = /path/to/logs/images.log
+timelapse_log_location = /path/to/logs/timelapses.log
+diskcheck_log_location = /path/to/logs/diskcheck.log
+manual_image_log_location = /path/to/logs/manual_processed_images.log
+upload_log_location = /path/to/logs/upload.log
+youtube_log_location = /path/to/logs/youtube.log
+twitter_log_location = /path/to/logs/twitter.log
+image_check_location = /path/to/logs/image_check.log
+instagram_log_location = /path/to/logs/instagram.log
+
+[api_urls]
+image_url = 
+sun_api_boston = https://api.sunrise-sunset.org/json?lat=42.332541&lng=-71.045816&formatted=0
+
+[slack]
+slackhook = 
+slackheaders = {"Content-type": "application/json"}
+
+[timelapse_config]
+# basic timelapse configs for easy changes  640x480, 1280x720, hd1080
+timelapse_config = {"framerate": "18", "size": "1280x720"}
+
+[vimeo]
+key = 
+token = 
+secret = 
+
+[youtube]
+CLIENT_SECRETS_FILE = 
+OAUTH_FILE = 
+description = 
+
+[diskcheck]
+filesystem = 
+
+[titles]
+night = 
+day = 
+fourwayday = 
+fourwaynight = 
+week = 
+fourwayweek = 
+
+[twitter]
+project_app_name = 
+api_key = 
+api_secret = 
+bearer_token = 
+access_token = 
+access_token_secret = 
+monument_lat = 42.33286729934063
+monument_long = -71.0457823013289
+
+[instagram]
+access_token = 
+instagram_business_account = 
+monument_location_id = 313806622033093
+
+[gcp]
+base_url = https://storage.googleapis.com/
+bucket = 
+folder = 
