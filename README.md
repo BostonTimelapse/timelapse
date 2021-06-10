@@ -324,6 +324,8 @@ Gah! So incredibly powerful but such a bear for a novice to use. I spent sooo mu
 * No leading / on the path to the command. This was an early problem but I simply could-not-see-it. Pretty sure I thought cron was irrevokably broken for some rare reason I saw in a thread before I caught this one. I felt like I tried EVERYTHING
 * Seems obvious but it took a while for me to figure out that you needed to add bin/bash before a bash script
  
+#### web development
+Really have no idea here, but github-pages made it super easy to set up this post and thanks to my google workspace account I already had a domain. Was a little surprised how clumsy it is to embed video but thanks to [this repo](https://github.com/nathancy/jekyll-embed-video) I made it work. 
 
 ## Closing Thoughts
 In the end I am so happy I have something that works. And I really enjoy sharing the output multiple times a day. I put a ton of time and effort into the project and it has been extremely frustrating but also a lot of fun to continue to add functionality and push the envelope of what I know how to do. As I built this project out my capabilities snowballed and what was really hard in the beginning was a lot easier in the end. I was rarely happy with the basics and always pushed for some dumb marginal thing I liked. For example the tweets and instagram posts are both location tagged directly from either the Dorchester Heights or Bunker Hill monuments and I set up my script to let me tweet from the command line so that location info is always (usually) there. I also got pretty good at making little helper scripts if I had a quick idea. There are a bunch of things I made for myself that I chose not to share.
