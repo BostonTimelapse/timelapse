@@ -11,8 +11,7 @@ I made a fully automated timelapse build pipeline with python, FFmpeg and a rasp
 4. It tweets via [https://twitter.com/BostonTimelaps1](https://twitter.com/BostonTimelaps1) 
 5. It [posts to instagram](https://www.instagram.com/bostontimelaps1/)
 
-
-The idea behind this post is to give something back to the developer and aspiring developer community after cribbing so much from around the web to build this. I'd be more than content if someone finds a useful nugget about anything in this writeup.
+I'd be more than content if someone finds a useful nugget about anything in this writeup.
 
 Huge thank you to the National Parks Service of Boston! More acknowledgements at the end.
 
@@ -75,13 +74,13 @@ I love the pi. It really just works. I marvel at the history and sheer volume of
 
 Here's a rundown of the messes I made and how I cleaned them up:
 
-1. **mess:** For some reason or another I thought I needed to do a full update and ran `sudo apt update` then `sudo apt full-upgrade`. The system just hung and I could not kick off another ssh session to try and kill processes. I coudn't figure out what to do so I unplugged it again. it would not come back up.
+1. **problem:** For some reason or another I thought I needed to do a full update and ran `sudo apt update` then `sudo apt full-upgrade`. The system just hung and I could not kick off another ssh session to try and kill processes. I coudn't figure out what to do so I unplugged it again. It would not come back up.
 
-	**solution:** I assumed I'd wrecked the os. My 2012 macbook pro has an sd card reader and was able to reimage the sd card via [rasberry pi imager](https://www.raspberrypi.org/software/) and [extfs for mac](https://www.paragon-software.com/us/home/extfs-mac/) - extfs is paid unfortunately but you can use it for free for a short time. Was a lot faster and easier than I thought it would be. I ended up buying extfs for mac.
+	**solution:** I assumed I'd wrecked the os after some quick googling. My 2012 macbook pro has an sd card reader and was able to reimage the sd card via [rasberry pi imager](https://www.raspberrypi.org/software/) and [extfs for mac](https://www.paragon-software.com/us/home/extfs-mac/) - extfs is paid unfortunately but you can use it for free for a short time. Was a lot faster and easier than I thought it would be.
  
 	**consequences:** 
 	- I had to set up the pi from scratch again
-	- I was lazy about setting up a git workflow. Seemed complicated to me given I have no idea what I am doing. I lost some code changes I had made that I had to rewrite. Not sure if it's a good or bad plan but my code lives on the sd card (everything else on the external disk)
+	- I was lazy about setting up a git workflow. Seemed complicated to me at the time. I lost some code changes I had made that I had to rewrite. Not sure if it's a good or bad plan but my code lives on the sd card (everything else on the external disk)
 	- Big window of time where I wasn't pulling new images
 	- Lots of lost time and significant frustration
 
@@ -110,9 +109,9 @@ Here's a rundown of the messes I made and how I cleaned them up:
  
 5. **problem:** Raspberry pi tipped over while I was out of town and was totaly unresponsive. Could not SSH to it. This freaked me out and I was worried it was hacked.
  
-	**solution:** Turns out the pi was the least of my problems when I got home. Our fridge had failed too. Lots of spoiled freezer food. This is the second time that's happend in 4 months. Lucky to be able to afford a new fridge. Anyway, cycling the power the pi came right back up. I did a lot of poking at logs to investigate and what I think happened is the pi did an automated update via `apt-daily.service` and it hung.  It eventually came back up and my cronjobs ran but it was disconnected from the network. I think it is because there was a message in the process that needed to be accepted (this happened when I did it manually - didn't grab the message. Sorry should have) and the whole thing hung. Since I already ran that `apt update` and `apt upgrade` manually there isn't a good way for me to reproduce.  Either way I stopped that the automated updates.  I'll just have to be diligent about doing it myself regularly. 
+	**solution:** Turns out the pi was the least of my problems when I got home. Our fridge had failed too. Lots of spoiled freezer food. This is the second time that's happend in 4 months. Lucky to be able to afford a new fridge. Anyway, cycling the power the pi came right back up. I did a lot of poking at logs to investigate and what I think happened is the pi did an automated update via `apt-daily.service` and it hung.  It eventually came back up and my cronjobs ran but it was disconnected from the network. I think it is because there was a message in the process that needed to be accepted (this happened when I did it manually - didn't grab the message. Sorry should have) and the whole thing timed out. Since I already ran that `apt update` and `apt upgrade` manually there isn't a good way for me to reproduce.  Either way I stopped that the automated updates.  I'll just have to be diligent about doing it myself regularly. 
  
-	**consequences:** About 14 hours of images lost.
+	**consequences:** About 14 hours of images lost and a bit of angst that I didn't secure the pi properly.
    
  
 ## Automated pipeline
@@ -192,7 +191,7 @@ I feel like I used all the big ones on this project. In general the experience w
 1. [sunrise-sunset.org](https://sunrise-sunset.org/api)
 I started looking at [timeanddate.com](https://www.timeanddate.com/) but their api is paid. Felt lucky to find [sunrise-sunset.org](https://sunrise-sunset.org). It fits my need perfectly. Huge thank you to them.
 
-2. [youtube](https://developers.google.com/youtube/v3/guides/uploading_a_video) the youtube api is a pain. It's 100% targeted at 	professional developers building apps aimed at other users. There is no way as an individual that you can upload your video to your channel via api and have it be publicly available. The uploads are automatically and irrevokably marked private.
+2. [youtube](https://developers.google.com/youtube/v3/guides/uploading_a_video) the youtube api is a pain. It's 100% targeted at professional developers building apps aimed at other users. There is no way as an individual that you can upload your video to your channel via api and have it be publicly available. The uploads are automatically and irrevokably marked private.
 
 	Somehow it worked for me for a little while but then stopped. I tried to work around this and created a workspace account and made an 'internal' app. Same problem. Imagine they are trying to prevent some kind of abuse but it is annoying af. I just threw in the towel on youtube. Not worth it. Lots of effort down the drain.
 
@@ -294,7 +293,7 @@ I fell into pretty bad habits and pretty much tested everything I wrote in produ
 I was realy humbled by the fact that testing requires so much discipline even for a project so small --- I should definitely be more empathetic to my software engineer colleagues. But they cannot and should not get away with my kind of bs behavior.
 
 #### coding
-I learned a lot... I am really happy that I am able to make this work at all. Beyond that it's kind of hard to articulate. For a project where I went from winging it entirely to trying to plan a little I had/have a lot of trouble with naming things. I also hit at least one off by one error. So I guess I went 2-3 with the "two hardest problems in computer science." 
+I learned a lot... I am really happy that I am able to make this work at all. Beyond that it's kind of hard to articulate. For a project where I went from winging it entirely to trying to plan a little I had/have a lot of trouble with naming things. I also hit at least one off by one error. So I guess I went 2-3 with the "two hardest problems in computer science." I am unreasonbly excited that I wrote a recursive function as my own solution to a problem. That's a huge conceptual leap forward for me that I am sure will be forgotten soon. 
 
 #### python
 I learned so much about python from where I started it's crazy. It is definitely a language that comparatively lends itself to people like me who do not have a good foundation in computer science. But that's a low bar. and as someone with little experience it was sometimes confounding. A lot of the 'pythonic' doc out there lacks examples and is really hard to parse if you are new. It sometimes feels like another extension of the rtfm attitude that is everywhere in computer science especially in the *nix ecosystems. Great if it works for you, but examples work for many others. There is no reason for gate-keeping what are really becoming ubiquitious tools (case-in-point me using them).
@@ -311,25 +310,27 @@ Some more detailed things that I dealt with constantly and didn't really learn:
 * Anything to do with bookkeeping of files was a lot more difficult than I thought it would be. There are powerful ways to find what you need but they aren't easy. I spent a lot of time dealing with paths and filenames and screwing it up. My strategies here are also really inefficient but I had couldn't come up with something better.
 * I needed to do a bunch of string matching (read couldn't think of a better way to get some logic and pull file names) and I approached it by taking slices of a string and then matching the literals. I screwed this up many times. Then I realized I could just write `if "foo" in barvariable:` ugh...
 * I had a hard time making functions independent and I think that's what prevented me from trying to write something that imported code from elsewhere and did its thing solely based on config and args
-* I am unreasonbly excited that I wrote a recursive function as my own solution to a problem. That's a huge conceptual leap forward for me that I am sure will be forgotten soon. 
-
+* Getting virtual environments to work properly via cron and not getting weird behavior from my `subprocess.run()` calls.  I ended up just giving up on this. I had a lot of janky ways to make things work but they annoyed me too much.
 
 #### apis
-The process with facebook/instagram and google was exhausting. Intellectually I understood these companies are geared toward collecting and deriving value from their user's data but I really didn't understand how much they cater to that openly on the api front. I'm still in a bit of shock that whatever api they provide isn't easily available to a user if it relates to manipulating their own account. I understand come fo the reasons why but at the same time it really underscores the fact that the users are not customers... we're the product. 
+The process with facebook/instagram and google was exhausting. Intellectually I understood these companies are geared toward collecting and deriving value from their user's data but I really didn't understand how much they cater to that openly on the api front. I'm still in a bit of shock that whatever api they provide isn't easily available to a user if it relates to manipulating their own account. I understand some of the reasons why but at the same time it really underscores the fact that the users are not customers... we're the product. 
 
 #### cron
-Gah! So incredibly powerful but such a bear for a novice to use. I spent sooo much time, especially early on in this project trying to get cron to work. First on my mac for testing and then again on the pi for production. Some of the things I dealt with and part of the reason I shared my crontab.
+Gah! So incredibly powerful but such a bear for a novice to use. I spent sooo much time, especially early on in this project trying to get cron to work. First on my mac for testing and then again on the pi for production given slight differences between the two environments. Some of the things I dealt with and part of the reason I shared my crontab.
 
-* Silent failures - once I picked up `>> to a file with 2>&1 ` somewhere it was a game changer. Finally some insight into what was going on.
+* Silent failures - once I picked up `>> /to/a/file 2>&1 ` somewhere it was a game changer. Finally some insight into what was going on. Though would love a way to add timestamps to that output.
 * No leading / on the path to the command. This was an early problem but I simply could-not-see-it. Pretty sure I thought cron was irrevokably broken for some rare reason I saw in a thread before I caught this one. I felt like I tried EVERYTHING
-* How to call a venv from a cron job or a bash script from a cron job. I eventually got this to work but ended up scrapping it... I know venvs are best practice but I honestely don't care if I end up making my pi python weird as long as this project runs
 * Seems obvious but it took a while for me to figure out that you needed to add bin/bash before a bash script
  
 
 ## Closing Thoughts
-In the end I am so happy I have something that works. And I really enjoy sharing the output multiple times a day.  I put a ton of time and effort into the project and it has been extremely frustrating but also a lot of fun to continue to add functionality and push the envelope of what I know how to do. As I built this project out my capabilities snowballed and what was really hard in the beginning was a lot easier in the end. I was rarely happy with the basics and always pushed for some dumb marginal thing I liked. For example the tweets and instagram posts are both location tagged directly from either the Dorchester Heights or Bunker Hill monuments and I set up my script to let me tweet from the command line so that location info is always (usually) there. I also got pretty good at making little helper scripts if I had a quick idea. There are a ton of things I made for myself that I chose not to share.
+In the end I am so happy I have something that works. And I really enjoy sharing the output multiple times a day. I put a ton of time and effort into the project and it has been extremely frustrating but also a lot of fun to continue to add functionality and push the envelope of what I know how to do. As I built this project out my capabilities snowballed and what was really hard in the beginning was a lot easier in the end. I was rarely happy with the basics and always pushed for some dumb marginal thing I liked. For example the tweets and instagram posts are both location tagged directly from either the Dorchester Heights or Bunker Hill monuments and I set up my script to let me tweet from the command line so that location info is always (usually) there. I also got pretty good at making little helper scripts if I had a quick idea. There are a bunch of things I made for myself that I chose not to share.
 
-I am really interested in running this for the long term. At a minimum I love seeing sunset and sunrise from different perspectives every day.  I'm also sure the cameras will capture something cool and unexpected. And at a minimum I want to play around with really long term timelapses. We'll see what I can come up with.
+I am really interested in running this for the long term. At a minimum I love seeing sunset and sunrise from different perspectives every day.  I'm also sure the cameras will capture something cool and unexpected like this.
+
+![](img/hawk.jpeg)
+
+And at a minimum I want to play around with really long term timelapses. We'll see what I can come up with.
 
 I hope sharing this helps someone else learn something or even inspires someone to do something with another feed somewhere in the public domain! Though I do not recommend actually using my code :) This writeup is my attempt to give something back given how much I benefited from sites like stack overflow and a whole bunch of random blogs and websites.
 
