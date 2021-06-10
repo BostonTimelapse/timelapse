@@ -346,7 +346,7 @@ If you like the work don't forget to follow me on twitter [@bostontimelaps1](htt
 And finally, apologies for keeping this anonymous. I did not do this for anything other than fun and I prefer not to have an obvious public internet presence.
 
 ## Acknowledgements
-Huge thank you to Boston NPH and the team that makes these images possible. Especially Eric. I reached out to them to let them know what I was doing and how cool I think the cameras are and they have been extremely generous and friendly to a silly hobbyist. Also nearly forgot my friend Simon. He helped me with some random python questions including pointing me to black.
+Huge thank you to Boston NPH and the team that makes these images possible. Especially Eric. I reached out to them to let them know what I was doing and how cool I think the cameras are and they have been extremely generous and friendly to a silly hobbyist.
 
 Another big thank you to all of the open source projects that made this possible. Especially:
 
@@ -356,6 +356,7 @@ Another big thank you to all of the open source projects that made this possible
 - https://www.python.org/
 - https://sunrise-sunset.org/
 
+Also nearly forgot my friend Simon. He helped me with some random python questions including pointing me to black.
 
 *No protection is claimed in original U.S. Government works*
 
