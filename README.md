@@ -61,12 +61,12 @@ I thought the thing I did was cool and I wanted to share it. I got the idea that
 
 
 ## Raspberry Pi 4
-The laptop goes to sleep and has to be used for other more important stuff that might break the workflow. My first thought was to give [pythonanywhere.com](https://www.pythonanywhere.com/) its due and build there but some quick calculations made me worry about storage in the long term. I had an old 2tb usb hdd lying around so my second thought was why not torture myself by learning something else?
+The laptop goes to sleep and has to be used for other more important stuff that might break the workflow. My first thought was to give [pythonanywhere.com](https://www.pythonanywhere.com/) its due and build there but some quick calculations made me worry about storage in the long term. I had an old 2tb usb hdd lying around so my second thought was why not give a raspberry pi a whirl.
 
 I heard of raspberry pis a looong time ago (when they first were released?) and always thought... "sounds cool but wtf am I gonna use it for?" This project apparently... so I ordered one (with an imaged sd card... didn't need to make it too hard and creating an image seemed intimidating) and anxiously awaited its arrival. At the time I had a working python script to process the images and really simple bash script to build timelapses with ffmpeg. I thought I was ready to go especially once I figured out how to join the four different directions into one video.
 
 #### setup
-I had no keyboard, mouse or monitor and prefer to make things hard on myself so was convinced this little pi had to run headless. I surprised myself when I got it [working](https://www.raspberrypi.org/documentation/configuration/wireless/headless.md) and [relatively locked down](https://www.raspberrypi.org/documentation/configuration/security.md) in an hour following the awesome doc on [raspberrypi.org](https://www.raspberrypi.org/documentation).
+I had no keyboard, mouse or monitor so was convinced this little pi had to run headless. I surprised myself when I got it [working](https://www.raspberrypi.org/documentation/configuration/wireless/headless.md) and [relatively locked down](https://www.raspberrypi.org/documentation/configuration/security.md) in an hour following the awesome doc on [raspberrypi.org](https://www.raspberrypi.org/documentation).
 
 I was surprised again when I unplugged it to move it to its permanent location in a closet and it didn't come back up when reconnected (yep didn't properly shut it down). The initial setup was so easy I was shocked I could wreck the thing so thoughtlessly. I think I spent 3 hours trying to get it to reconnect to my home wifi. Didn't succeed but somehow ethernet worked. I went to bed at 1 that night. Our kids were up at 5 the next morning.
 
