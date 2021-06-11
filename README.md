@@ -39,7 +39,7 @@ I decided to automate the form fill. I had no idea what I was doing. I copied so
 
 I had done a thing and was pretty convinced I could do another thing but then forgot about doing things with code (-ish I remained unreasonably happy about not filling out google forms every day)...
 
-But in March 2021 the National Parks Service installed webcams on the Dorchester Heights Monument in South Boston near where I live. The feed is posted at [NPS views of the revolution](https://www.nps.gov/bost/learn/views-of-the-revolution-360-monument-webcams.htm) and NPS Boston put together a [video of the install](https://youtu.be/O3RD44dI0js).
+But in March 2021 the National Parks Service installed webcams on the [Dorchester Heights Monument](https://onemilliontweetmap.com/?center=42.3328188946806,-71.04534337297083&zoom=17&search=&timeStep=0&timeSelector=0&hashtag1=&hashtag2=sad&sidebar=yes&hashtagBattle=0&timeRange=0&timeRange=25&heatmap=0&sun=0&cluster=1) in South Boston near where I live. The feed is posted at [NPS views of the revolution](https://www.nps.gov/bost/learn/views-of-the-revolution-360-monument-webcams.htm) and NPS Boston put together a [video of the install](https://youtu.be/O3RD44dI0js).
 
 I don't remember how the webcams captured my attention but I got really obsessed with checking the feeds - mostly just to check on the weather or the tides. I found the link to the raw image and embedded it on the home screen on my iphone so I could check it constantly.
 
@@ -346,7 +346,7 @@ If you like the work don't forget to follow me on twitter [@bostontimelaps1](htt
 And finally, apologies for keeping this anonymous. I did not do this for anything other than fun and I prefer not to have an obvious public internet presence.
 
 ## Acknowledgements
-Huge thank you to Boston NPH and the team that makes these images possible. Especially Eric. I reached out to them to let them know what I was doing and how cool I think the cameras are and they have been extremely generous and friendly to a silly hobbyist.
+Huge thank you to Boston National Historical Park and the team that makes these images possible. Especially Eric. I reached out to them to let them know what I was doing and how cool I think the cameras are and they have been extremely generous and friendly to a silly hobbyist.
 
 Another big thank you to all of the open source projects that made this possible. Especially:
 
