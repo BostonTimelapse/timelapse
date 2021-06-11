@@ -143,7 +143,7 @@ There isn't a whole lot of special python stuff in this flow. The most important
 
 The other thing that may be less common is using `subproccess.run()` to call FFmpeg in my workflow. And of course I'm using client libraries for apis. I probably could have used a python FFmpeg wrapper but this is the path I started on.
 
-Oh and I forgot about [black](https://github.com/psf/black). I am terrible at formatting. Black is awesome. 
+Oh and I forgot about [black](https://github.com/psf/black). I am terrible at formatting. Black is fantastic. 
 
 #### ffmpeg
 [FFmpeg](https://www.ffmpeg.org/) is so awesome. I made a timelapse via imovie once and processing took forever and it was a huge hassle. FFmpeg does this stuff so fast and painlessly I cannot believe it. Even a tiny little pi can just crank through it given enough time. Here's a list of the base commands I used. There are a lot of configurable options here, but this stuff just works.
@@ -305,7 +305,7 @@ Here are some things I used that really helped make my life easier but also took
 
 * [Configparser](https://docs.python.org/3/library/configparser.html) to manage configs and sensitive variables. Part of the reason I didn't set up git early is I was paranoid about sharing creds. Setting up a config file is really really simple and then you can throw it in .gitignore
 * [Logging](https://docs.python.org/3/library/logging.html) - total must. Print statements were/are key for my debugging but logging has been a huge help for just about everything. I could have been disciplined about log levels... but whatever. It's a huge help and I'm not even that organized with it. Besides there is something deeply satisfying to watch `tail -f /path/to/foo.log` and see your work logging away live. 
-* [Argparse](https://docs.python.org/3/library/argparse.html) combined with mulitple config files was clutch for keeping me from copy/pasting code. I definitely still copy pasted a bit. But I don't think I was egregious and I tried soooo hard not to. Given my level of experience i'm pretty happy with how I did on that front.
+* [Argparse](https://docs.python.org/3/library/argparse.html) combined with multiple config files was clutch for keeping me from copy/pasting code. I definitely still copy pasted a bit. But I don't think I was egregious and I tried soooo hard not to. Given my level of experience I'm pretty happy with how I did on that front.
 
 Some more detailed things that I dealt with constantly and didn't really learn:
 
