@@ -118,21 +118,21 @@ Here's a rundown of the messes I made and how I cleaned them up:
 ## Automated pipeline
 Almost everytime I got something working I had an idea to extend it further. Or it dawned on my I'd done something stupid. In general I tried to keep scripts modular so they could be chained togehter and run via cron. Here's a high level summary of the big iterations with the associated ideas that made me break them. Each step was a lot of work and a significant learning experience. The goal was always to keep everything automated with no intervention needed. Was at least 6 weeks before I got a few days running in a row.
 
-1. Early version of getimages.py --> Defunct bash script that created time lapses
+1. Early version of [getimages.py](https://github.com/BostonTimelapse/timelapse/blob/main/getimages.py) --> Defunct bash script that created time lapses
 	- Idea: decide which images to build from based on date and astronomical data and group them together 
-2. getimages.py --> timelapsebuilder.py
+2. [getimages.py](https://github.com/BostonTimelapse/timelapse/blob/main/getimages.py) --> [timelapsebuilder.py](https://github.com/BostonTimelapse/timelapse/blob/main/timelapsebuilder.py)
 	- Idea: Automatically upload videos to youtube
-3. getimages.py --> timelapsebuilder.py --> defunct youtube upload script
+3. [getimages.py](https://github.com/BostonTimelapse/timelapse/blob/main/getimages.py) --> [timelapsebuilder.py](https://github.com/BostonTimelapse/timelapse/blob/main/timelapsebuilder.py) --> defunct youtube upload script
 	- Idea: Automatically upload videos to vimeo
-4. getimages.py --> timelapsebuilder.py --> vimeo\_upload\_youtube_prep.py --> youtube\_upload.py
+4. [getimages.py](https://github.com/BostonTimelapse/timelapse/blob/main/getimages.py) --> [timelapsebuilder.py](https://github.com/BostonTimelapse/timelapse/blob/main/timelapsebuilder.py) --> [vimeo\_upload\_youtube_prep.py](https://github.com/BostonTimelapse/timelapse/blob/main/vimeo_upload_youtube_prep.py) --> youtube\_upload.py
 	- Idea: Tweet about the videos automatically (this was my wife's idea and I needed her help... I'd never really used twitter)
-5. getimages.py --> timelapsebuilder.py --> vimeo\_upload\_youtube_prep.py --> youtube\_upload.py --> twittertimelapsebot.py
+5. [getimages.py](https://github.com/BostonTimelapse/timelapse/blob/main/getimages.py) --> [timelapsebuilder.py](https://github.com/BostonTimelapse/timelapse/blob/main/timelapsebuilder.py) --> [vimeo\_upload\_youtube_prep.py](https://github.com/BostonTimelapse/timelapse/blob/main/vimeo_upload_youtube_prep.py) --> youtube\_upload.py (now defunct) --> twittertimelapsebot.py (now defunct)
 	- Idea: Run two build pipelines so I could grab the images from Bunker Hill too. 
 6. Refactored everything to take config files and some command line arguments
 	- Idea: Instagram (also my wife's idea... and this was a massive time suck. I almost gave up.)
-7. getimages.py --> timelapsebuilder.py --> vimeo\_upload\_youtube_prep.py --> youtube\_upload.py --> instagramandtwitterbot.py
+7. [getimages.py](https://github.com/BostonTimelapse/timelapse/blob/main/getimages.py) --> [timelapsebuilder.py](https://github.com/BostonTimelapse/timelapse/blob/main/timelapsebuilder.py) --> [vimeo\_upload\_youtube_prep.py](https://github.com/BostonTimelapse/timelapse/blob/main/vimeo_upload_youtube_prep.py) --> youtube\_upload.py --> [instagramandtwitterbot.py](https://github.com/BostonTimelapse/timelapse/blob/main/instagramandtwitterbot.py)
 	- Idea: Instagram video clips of sunrise and sunset (eventually this is what made sense to also post to twitter - can see the progression on my feed)
-8. getimages.py --> timelapsebuilder.py --> vimeo\_upload\_youtube_prep.py --> youtube\_upload.py --> instagramandtwitterbot.py --> instagram\_clip\_uploader.py (instagram\_clip\_uploader.py easily became part of instagramandtwitterbot.py)
+8. [getimages.py](https://github.com/BostonTimelapse/timelapse/blob/main/getimages.py) --> [timelapsebuilder.py](https://github.com/BostonTimelapse/timelapse/blob/main/timelapsebuilder.py) --> [vimeo\_upload\_youtube_prep.py](https://github.com/BostonTimelapse/timelapse/blob/main/vimeo_upload_youtube_prep.py) --> youtube\_upload.py --> [instagramandtwitterbot.py](https://github.com/BostonTimelapse/timelapse/blob/main/instagramandtwitterbot.py) --> instagram\_clip\_uploader.py (instagram\_clip\_uploader.py easily became part of instagramandtwitterbot.py)
 
 I broke the whole thing every step of the way so many times. Even with the minor changes
 
