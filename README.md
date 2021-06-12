@@ -171,9 +171,9 @@ Snag the last N seconds of a clip - used this for my insta posts
 ffmpeg -sseof -N -i /path/to/input.mp4 /path/to/output.mp4
 ```
 
-Grab a clip starting at time X and lasting N seconds - used for randomly generated clips for twitter.
+Grab a clip starting at time X and lasting N seconds - used for randomly generated clips for twitter. Had to downscale the quality from HD to make sure the clips are always under the 15mb API upload limit. 
 ```
-ffmpeg -ss X -i path/to/input.mp4 -c copy -t N path/to/output.mp4
+ffmpeg -ss X -t N -i path/to/input.mp4 -c -s:v 1280x720 path/to/output.mp4
 ```
 
 Get length of video
