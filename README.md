@@ -310,10 +310,10 @@ Here are some things I used that really helped make my life easier but also took
 Some more detailed things that I dealt with constantly and didn't really learn:
 
 * Managing dates and datetime objects vs strings vs unix time etc was hard and I had to relearn and reread code everytime I came back to date or time. I'm also sure my solutions to these problems are awful
-* Anything to do with bookkeeping of files was a lot more difficult than I thought it would be. There are powerful ways to find what you need but they aren't easy. I spent a lot of time dealing with paths and filenames and screwing it up. My strategies here are also really inefficient but I had couldn't come up with something better.
+* Anything to do with bookkeeping of files was a lot more difficult than I thought it would be. There are powerful ways to find what you need but they aren't easy. I spent a lot of time dealing with paths and filenames and screwing it up. My strategies here are also really inefficient but I couldn't come up with something better
 * I needed to do a bunch of string matching (read couldn't think of a better way to get some logic and pull file names) and I approached it by taking slices of a string and then matching the literals. I screwed this up many times. Then I realized I could just write `if "foo" in barvariable:` ugh...
 * I had a hard time making functions independent and I think that's what prevented me from trying to write something that imported code from elsewhere and did its thing solely based on config and args
-* Getting virtual environments to work properly via cron and not getting weird behavior from my `subprocess.run()` calls.  I ended up just giving up on this. I had a lot of janky ways to make things work but they annoyed me too much.
+* Getting virtual environments to work properly via cron and not getting weird behavior from my `subprocess.run()` calls.  I ended up just giving up on this. I had a lot of janky ways to make things work but they annoyed me too much
 
 #### apis
 The process with facebook/instagram and google was exhausting. Intellectually I understood these companies are geared toward collecting and deriving value from their user's data but I really didn't understand how much they cater to that openly on the api front. I'm still in a bit of shock that whatever api they provide isn't easily available to a user if it relates to manipulating their own account. I understand some of the reasons why but at the same time it really underscores the fact that the users are not customers... we're the product. 
